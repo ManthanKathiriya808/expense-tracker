@@ -31,7 +31,7 @@ function App() {
 
 
   function getLocal(){
-   let local =  JSON.parse(localStorage.getItem("data"));
+   let local =  JSON.parse(localStorage.getItem("data")) || [];
    setData(local)
   }
 
