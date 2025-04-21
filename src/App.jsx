@@ -16,16 +16,8 @@ function App() {
   const [data,setData] = useState([])
   const id = uuidv4();
 
-
-  function dele(id){
-    const deleData = data.filter((ele) => ele.id != id)
-    setLocal(deleData)
-    // console.log(deleData)
-
-  }
-
   function setLocal(d){
-    localStorage.setItem("data", JSON.stringify(d));
+    localStorage.setItem("data", JSON.stringify(d)) || [];
     getLocal()
   }
 
@@ -37,7 +29,19 @@ function App() {
 
   useEffect(()=> {
     getLocal()
+
+
   }, [])
+
+  
+  function dele(id){
+    const deleData = data.filter((ele) => ele.id != id)
+    setLocal(deleData)
+    // console.log(deleData)
+
+  }
+
+
 
   function submit(){
     
